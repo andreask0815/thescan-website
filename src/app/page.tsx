@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import VideoSection from "@/components/VideoSection";
 
 const services = [
   {
@@ -6,24 +8,32 @@ const services = [
     description:
       "Mit Remote Scanning bleibt der Betrieb am Laufen — auch wenn Ihr Team ausfällt.",
     href: "/remote-scanning",
+    image:
+      "https://images.unsplash.com/photo-1666214280352-db292c05fd80?w=800&q=80",
   },
   {
     title: "High Quality Scanning & Mentoring",
     description:
       "Expert*innen unterstützen Ihr Team remote bei speziellen Scans und Weiterbildung.",
     href: "/remote-mentoring",
+    image:
+      "https://images.unsplash.com/photo-1530497610245-94d3c16cda28?w=800&q=80",
   },
   {
     title: "Projektmanagement für Radiologien",
     description:
       "Wir führen Ihr Remote Projekt zum Erfolg — sorgenfrei und professionell.",
     href: "/projektmanagement",
+    image:
+      "https://images.unsplash.com/photo-1579684385127-1ef15d508118?w=800&q=80",
   },
   {
     title: "Weiterbildung und Community",
     description:
       "Kurse, Netzwerk und Karrieremöglichkeiten für Radiologietechnolog*innen.",
     href: "/club",
+    image:
+      "https://images.unsplash.com/photo-1587557983735-f05198060b52?w=800&q=80",
   },
 ];
 
@@ -58,33 +68,48 @@ export default function Home() {
   return (
     <>
       {/* Hero */}
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-[1200px] px-6 text-center">
-          <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
-            Mehr Scans. Weniger Risiko.
-            <br />
-            <span className="text-muted">Alles abgesichert.</span>
-          </h1>
-          <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed">
-            Ihr remote Betrieb mit geprüften Radiologietechnologen. Sicher,
-            wirtschaftlich, sofort einsatzbereit.
-          </p>
-          <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link
-              href="/kontakt"
-              className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-medium text-white hover:bg-accent-hover transition-colors"
-            >
-              Terminvereinbarung
-            </Link>
-            <Link
-              href="/remote-scanning"
-              className="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
-            >
-              Mehr erfahren &rarr;
-            </Link>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1663047674926-3e35e511c80e?w=1600&q=80"
+            alt="MRT-Gerät in moderner Radiologie"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/85" />
+        </div>
+        <div className="relative py-28 md:py-40">
+          <div className="mx-auto max-w-[1200px] px-6 text-center">
+            <h1 className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight">
+              Mehr Scans. Weniger Risiko.
+              <br />
+              <span className="text-muted">Alles abgesichert.</span>
+            </h1>
+            <p className="mt-6 text-lg md:text-xl text-muted max-w-2xl mx-auto leading-relaxed">
+              Ihr remote Betrieb mit geprüften Radiologietechnologen. Sicher,
+              wirtschaftlich, sofort einsatzbereit.
+            </p>
+            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <Link
+                href="/kontakt"
+                className="inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-medium text-white hover:bg-accent-hover transition-colors"
+              >
+                Terminvereinbarung
+              </Link>
+              <Link
+                href="/remote-scanning"
+                className="inline-flex items-center justify-center rounded-full px-8 py-3 text-sm font-medium text-accent hover:text-accent-hover transition-colors"
+              >
+                Mehr erfahren &rarr;
+              </Link>
+            </div>
           </div>
         </div>
       </section>
+
+      {/* Video Section */}
+      <VideoSection />
 
       {/* Services Grid */}
       <section className="py-20 bg-surface">
@@ -94,17 +119,27 @@ export default function Home() {
               <Link
                 key={s.href}
                 href={s.href}
-                className="group rounded-2xl bg-white p-10 transition-shadow hover:shadow-lg"
+                className="group rounded-2xl bg-white overflow-hidden transition-shadow hover:shadow-lg"
               >
-                <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
-                  {s.title}
-                </h3>
-                <p className="mt-3 text-sm text-muted leading-relaxed">
-                  {s.description}
-                </p>
-                <span className="mt-6 inline-block text-sm text-accent">
-                  Mehr erfahren &rarr;
-                </span>
+                <div className="relative h-52">
+                  <Image
+                    src={s.image}
+                    alt={s.title}
+                    fill
+                    className="object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                <div className="p-8">
+                  <h3 className="text-xl font-semibold group-hover:text-accent transition-colors">
+                    {s.title}
+                  </h3>
+                  <p className="mt-3 text-sm text-muted leading-relaxed">
+                    {s.description}
+                  </p>
+                  <span className="mt-4 inline-block text-sm text-accent">
+                    Mehr erfahren &rarr;
+                  </span>
+                </div>
               </Link>
             ))}
           </div>
@@ -140,16 +175,25 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust */}
-      <section className="py-20 bg-surface">
-        <div className="mx-auto max-w-[1200px] px-6 text-center">
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight">
-            Persönlich. Keine anonyme Plattform.
-          </h2>
-          <p className="mt-4 text-muted max-w-2xl mx-auto leading-relaxed">
-            Erfahrung und Expertise aus Jahrzehnten. Unsere Lösung ist rechtlich
-            geprüft. Wir arbeiten ausschließlich gesetzeskonform.
-          </p>
+      {/* Full-width Image */}
+      <section className="relative h-[50vh] min-h-[400px]">
+        <Image
+          src="https://images.unsplash.com/photo-1666214280165-20e3d73d70bf?w=1600&q=80"
+          alt="Radiologie-Arbeitsplatz mit Monitoren"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 p-12">
+          <div className="mx-auto max-w-[1200px]">
+            <p className="text-white text-2xl md:text-3xl font-semibold tracking-tight max-w-xl">
+              Persönlich. Keine anonyme Plattform.
+            </p>
+            <p className="mt-2 text-white/70 max-w-lg">
+              Erfahrung und Expertise aus Jahrzehnten. Unsere Lösung ist
+              rechtlich geprüft.
+            </p>
+          </div>
         </div>
       </section>
 

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Accordion from "@/components/Accordion";
+import VideoSection from "@/components/VideoSection";
 
 export const metadata: Metadata = {
   title: "FAQ – The Scan",
@@ -48,18 +50,36 @@ const faqs = [
 export default function FAQ() {
   return (
     <>
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
-            FAQ
-          </p>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl">
-            Ihre Fragen, unsere Antworten.
-          </h1>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1666214276389-393fb7dbc75c?w=1600&q=80"
+            alt="MRT-Untersuchungsraum"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/85" />
+        </div>
+        <div className="relative py-28 md:py-40">
+          <div className="mx-auto max-w-[1200px] px-6">
+            <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
+              FAQ
+            </p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl">
+              Ihre Fragen, unsere Antworten.
+            </h1>
+          </div>
         </div>
       </section>
 
-      <section className="pb-24">
+      <VideoSection
+        title="Alles was Sie wissen müssen"
+        subtitle="Antworten auf die häufigsten Fragen zu Remote Scanning."
+        posterImage="https://images.unsplash.com/photo-1666214282459-c7dff167ecc0?w=1600&q=80"
+      />
+
+      <section className="py-24">
         <div className="mx-auto max-w-[800px] px-6">
           <Accordion items={faqs} />
         </div>

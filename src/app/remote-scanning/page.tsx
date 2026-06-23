@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import VideoSection from "@/components/VideoSection";
 
 export const metadata: Metadata = {
   title: "Remote Scanning – The Scan",
@@ -33,28 +35,49 @@ const pillars = [
 export default function RemoteScanning() {
   return (
     <>
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-[1200px] px-6">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
-            Remote Scanning
-          </p>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl">
-            Ihre Geräte laufen — auch wenn Ihr Team nicht kann.
-          </h1>
-          <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
-            Qualifizierte Radiologietechnologen bedienen Ihre Geräte wie MRT
-            ferngesteuert — ohne vor Ort zu sein. Ausfallsicherheit auf High
-            Level.
-          </p>
-          <Link
-            href="/kontakt"
-            className="mt-10 inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-medium text-white hover:bg-accent-hover transition-colors"
-          >
-            Kennenlerntermin vereinbaren
-          </Link>
+      {/* Hero with image */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1666214280352-db292c05fd80?w=1600&q=80"
+            alt="MRT-Gerät"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/85" />
+        </div>
+        <div className="relative py-28 md:py-40">
+          <div className="mx-auto max-w-[1200px] px-6">
+            <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
+              Remote Scanning
+            </p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl">
+              Ihre Geräte laufen — auch wenn Ihr Team nicht kann.
+            </h1>
+            <p className="mt-6 text-lg text-muted max-w-2xl leading-relaxed">
+              Qualifizierte Radiologietechnologen bedienen Ihre Geräte wie MRT
+              ferngesteuert — ohne vor Ort zu sein. Ausfallsicherheit auf High
+              Level.
+            </p>
+            <Link
+              href="/kontakt"
+              className="mt-10 inline-flex items-center justify-center rounded-full bg-accent px-8 py-3 text-sm font-medium text-white hover:bg-accent-hover transition-colors"
+            >
+              Kennenlerntermin vereinbaren
+            </Link>
+          </div>
         </div>
       </section>
 
+      {/* Video */}
+      <VideoSection
+        title="So funktioniert Remote Scanning"
+        subtitle="Erleben Sie, wie unsere Expert*innen Ihre Geräte ferngesteuert bedienen."
+        posterImage="https://images.unsplash.com/photo-1666214275099-0ca566aefe26?w=1600&q=80"
+      />
+
+      {/* Pillars */}
       <section className="py-20 bg-surface">
         <div className="mx-auto max-w-[1200px] px-6">
           <h2 className="text-3xl font-semibold tracking-tight text-center mb-16">
@@ -73,6 +96,17 @@ export default function RemoteScanning() {
         </div>
       </section>
 
+      {/* Full-width image break */}
+      <section className="relative h-[40vh] min-h-[320px]">
+        <Image
+          src="https://images.unsplash.com/photo-1581595220057-eefa8c4add1b?w=1600&q=80"
+          alt="Radiologe bei der Arbeit am Bildschirm"
+          fill
+          className="object-cover"
+        />
+      </section>
+
+      {/* CTA */}
       <section className="py-24">
         <div className="mx-auto max-w-[1200px] px-6 text-center">
           <h2 className="text-3xl font-semibold tracking-tight">

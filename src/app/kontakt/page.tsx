@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Kontakt – The Scan",
@@ -9,7 +10,18 @@ export const metadata: Metadata = {
 export default function Kontakt() {
   return (
     <>
-      <section className="py-24 md:py-36">
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1564725075388-cc8338732289?w=1600&q=80"
+            alt="Modernes Krankenhaus"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/90" />
+        </div>
+        <div className="relative py-24 md:py-36">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             <div>
@@ -130,6 +142,7 @@ export default function Kontakt() {
               </form>
             </div>
           </div>
+        </div>
         </div>
       </section>
     </>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
+import VideoSection from "@/components/VideoSection";
 
 export const metadata: Metadata = {
   title: "The Scan Club – The Scan",
@@ -64,22 +66,40 @@ const tiers = [
 export default function Club() {
   return (
     <>
-      <section className="py-24 md:py-36">
-        <div className="mx-auto max-w-[1200px] px-6 text-center">
-          <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
-            The Scan Club
-          </p>
-          <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl mx-auto">
-            Netzwerk für Radiologietechnolog*innen aus dem EU-Raum.
-          </h1>
-          <p className="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-            Motivation, Wertschätzung und neue Möglichkeiten — durch Networking
-            und professionelle Weiterbildung.
-          </p>
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0">
+          <Image
+            src="https://images.unsplash.com/photo-1587557983735-f05198060b52?w=1600&q=80"
+            alt="Medizinisches Team"
+            fill
+            className="object-cover"
+            priority
+          />
+          <div className="absolute inset-0 bg-white/85" />
+        </div>
+        <div className="relative py-28 md:py-40">
+          <div className="mx-auto max-w-[1200px] px-6 text-center">
+            <p className="text-sm font-medium uppercase tracking-widest text-accent mb-4">
+              The Scan Club
+            </p>
+            <h1 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight max-w-3xl mx-auto">
+              Netzwerk für Radiologietechnolog*innen aus dem EU-Raum.
+            </h1>
+            <p className="mt-6 text-lg text-muted max-w-2xl mx-auto leading-relaxed">
+              Motivation, Wertschätzung und neue Möglichkeiten — durch Networking
+              und professionelle Weiterbildung.
+            </p>
+          </div>
         </div>
       </section>
 
-      <section className="pb-24">
+      <VideoSection
+        title="Die Community für Radiologietechnolog*innen"
+        subtitle="Networking, Weiterbildung und Karriere — alles an einem Ort."
+        posterImage="https://images.unsplash.com/photo-1616012480717-fd9867059ca0?w=1600&q=80"
+      />
+
+      <section className="py-24">
         <div className="mx-auto max-w-[1200px] px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {tiers.map((t) => (
