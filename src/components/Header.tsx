@@ -9,6 +9,7 @@ const navItems = [
   { label: "Projektmanagement", href: "/projektmanagement" },
   { label: "FAQ", href: "/faq" },
   { label: "The Scan Club", href: "/club" },
+  { label: "Local Operator", href: "/local-operator-remote-mrt" },
   { label: "Weiterbildung", href: "/weiterbildung" },
   { label: "Kontakt", href: "/kontakt" },
 ];
