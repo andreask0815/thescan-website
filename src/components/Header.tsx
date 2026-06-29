@@ -10,6 +10,7 @@ const navItems = [
   { label: "FAQ", href: "/faq" },
   { label: "The Scan Club", href: "/club" },
   { label: "Local Operator", href: "/local-operator-remote-mrt" },
+  { label: "Remote Scanning Kurse", href: "/remote-scanning-kurse" },
   { label: "Weiterbildung", href: "/weiterbildung" },
   { label: "Kontakt", href: "/kontakt" },
 ];
